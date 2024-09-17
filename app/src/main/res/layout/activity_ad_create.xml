@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.AdCreateActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/toolbarRl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/m_toolbar_height">
+
+        
+        <ImageButton
+            android:id="@+id/toolbarBackBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"
+            android:background="@android:color/transparent"
+            android:layout_centerVertical="true"
+            android:padding="10dp"/>
+
+        
+        <TextView
+            android:id="@+id/toolbarTitleTv"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Objavi olgas" />
+
+        
+        <ImageButton
+            android:id="@+id/toolbarAddImageBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_add_photo"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:padding="10dp"/>
+
+        
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorGray02"/>
+
+    </RelativeLayout>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_below="@id/toolbarRl"
+        android:layout_above="@id/postAdBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            
+            <TextView
+                android:id="@+id/imagesLabelTv"
+                style="@style/TextAppearance.MaterialComponents.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Odaberite do 10 slika"/>
+
+            
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/imagesRv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imagesLabelTv"
+                app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+                app:spanCount="4"
+                tools:listitem="@layout/row_images_picked"/>
+
+            
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/brandTil"
+                android:layout_width="match_parent"
+                android:layout_below="@id/imagesRv"
+                android:layout_marginTop="10dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:boxCornerRadiusTopStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                android:hint="Brend"
+                app:startIconDrawable="@drawable/ic_brand_white"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusBottomEnd="8dp"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/brandEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/categoryTil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Katergorija"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                app:boxCornerRadiusBottomEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:startIconDrawable="@drawable/ic_category_white"
+                app:boxCornerRadiusTopStart="8dp"
+                android:layout_below="@id/brandTil">
+
+                <AutoCompleteTextView
+                    android:id="@+id/categoryAct"
+                    android:layout_width="match_parent"
+                    android:inputType="none"
+                    android:layout_height="wrap_content"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/conditionTil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Stanje"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                app:boxCornerRadiusBottomEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:startIconDrawable="@drawable/ic_condition_white"
+                app:boxCornerRadiusTopStart="8dp"
+                android:layout_below="@id/categoryTil">
+
+                <AutoCompleteTextView
+                    android:id="@+id/conditionAct"
+                    android:layout_width="match_parent"
+                    android:inputType="none"
+                    android:layout_height="wrap_content"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/locationTil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Lokacija"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                app:boxCornerRadiusBottomEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:startIconDrawable="@drawable/ic_location_white"
+                app:boxCornerRadiusTopStart="8dp"
+                android:layout_below="@id/conditionTil">
+
+                <AutoCompleteTextView
+                    android:id="@+id/locationAct"
+                    android:layout_width="match_parent"
+                    android:inputType="none"
+                    android:layout_height="wrap_content"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/priceTil"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Cena"
+                app:startIconDrawable="@drawable/ic_wallet_white"
+                app:boxCornerRadiusTopStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusBottomEnd="8dp"
+                android:layout_below="@id/locationTil">
+
+                <EditText
+                    android:id="@+id/priceEt"
+                    android:layout_width="match_parent"
+                    android:inputType="numberDecimal"
+                    android:layout_height="wrap_content"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/titleTil"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Sta oglasavete"
+                app:startIconDrawable="@drawable/ic_title_white"
+                app:boxCornerRadiusTopStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusBottomEnd="8dp"
+                android:layout_below="@id/priceTil">
+
+                <EditText
+                    android:id="@+id/titleEt"
+                    android:layout_width="match_parent"
+                    android:inputType="textPersonName"
+                    android:layout_height="wrap_content"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/descriptionTil"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Opis"
+                app:startIconDrawable="@drawable/ic_description_white"
+                app:boxCornerRadiusTopStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusBottomEnd="8dp"
+                android:layout_below="@id/titleTil">
+
+                <EditText
+                    android:id="@+id/descriptionEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:inputType="textCapSentences|textMultiLine"
+                    android:minHeight="100dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/postAdBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:minHeight="@dimen/m_button_height"
+        android:text="Postavi oglas"
+        app:cornerRadius="8dp" />
+
+</RelativeLayout>

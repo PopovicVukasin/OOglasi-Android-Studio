@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.DeleteAccountActivity">
+
+    <RelativeLayout
+        android:id="@+id/toolbarRl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/m_toolbar_height">
+
+        
+        <ImageButton
+            android:id="@+id/toolbarBackBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:padding="10dp"/>
+
+        
+        <TextView
+            android:id="@+id/toolbarTitleTv"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Brisanje naloga" />
+
+        
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorGray02"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:layout_below="@id/toolbarRl">
+
+
+        
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profileIv"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/ic_person_white"
+            android:background="@color/colorGray01"
+            android:layout_centerHorizontal="true"
+            app:shapeAppearanceOverlay="@style/ImageStyle_Circle"/>
+
+        
+        <TextView
+            android:id="@+id/labelTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:textStyle="italic"
+            android:text="Da li ste sigurni da želite da izbrišete svoj nalog uključujući podatke? \n Nećete moći ponovo da pristupite svom nalogu! \n Ova radnja se ne može opozvati."
+            android:layout_marginTop="10dp"
+            android:textAlignment="center"
+            android:layout_below="@id/profileIv"/>
+
+        
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/submitBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="Potrvda brisanja"
+            app:icon="@drawable/ic_delete_gray"
+            android:minHeight="@dimen/m_button_height"
+            app:cornerRadius="8dp"/>
+
+    </RelativeLayout>
+</RelativeLayout>

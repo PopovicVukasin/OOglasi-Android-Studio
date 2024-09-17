@@ -1,0 +1,15 @@
+<resources>
+
+    <string name="app_name">OOglasi</string>
+
+    <string name="not_have_account_register">Nemate nalog? <b>Registruj se</b></string>
+    <string name="already_have_account_login">Imate nalog? <b>Prijavi se</b></string>
+    <string name="didt_sent_otp_resend">Nije poslat OTP? <b>Posalji ponovo</b></string>
+    <string name="forgot_password_recover">Zaboravljena lozinka? <b>Obnovi</b></string>
+    <string name="price_symbol">$</string>
+
+
+<!--    Google map api key -->
+    <string name="google_map_api_key" translatable="false">AIzaSyBkKGTrzkt1zHoxyKcbtIx23n_xxI1I_54</string>
+
+</resources>
